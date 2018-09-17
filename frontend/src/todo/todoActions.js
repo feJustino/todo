@@ -7,7 +7,11 @@ export const changeDescription = e => ({
   payload: e.target.value
 })
 
-export const getList = () =>(
-  Axios.get(`${URL}?sort=-createdAt${search}`)
-  .then(resp=> this.setState({...this.state, list: resp.data, description}))
-)
+export const search = () =>{
+  const request = Axios.get(`${URL}?sort=-createdAt`)
+
+  return{
+    type:'TODO_SEARCHED',
+    payload: request
+  }
+}

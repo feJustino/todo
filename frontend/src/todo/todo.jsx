@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Axios from 'axios'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import PageHeader from '../template/pageHeader'
 import TodoForm from './todoForm'
@@ -87,10 +88,4 @@ class Todo extends Component{
   }
 }
 
-
-const mapStateToProps = state =>({description: state.todo.description})
-const mapDispatchToProps = dispatch => bindActionCreators({
-  changeDescription
-}, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todo)
+export default Todo
